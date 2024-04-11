@@ -12,7 +12,7 @@ type RedisAdapter[K ~string] struct {
 	client *redis.Client
 }
 
-func NewARedis[K ~string](client *redis.Client) *RedisAdapter[K] {
+func NewRedisAdapter[K ~string](client *redis.Client) *RedisAdapter[K] {
 	return &RedisAdapter[K]{client}
 }
 
