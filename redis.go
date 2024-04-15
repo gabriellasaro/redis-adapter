@@ -46,6 +46,10 @@ func (r *RedisAdapter[K]) SetJSON(ctx context.Context, key K, value any, exp tim
 	return r.client.Set(ctx, string(key), v, exp).Err()
 }
 
+func (r *RedisAdapter[K]) Set(ctx context.Context, key K, value any, exp time.Duration) error {
+	return r.client.Set(ctx, string(key), value, exp).Err()
+}
+
 func (r *RedisAdapter[K]) IncrBy(ctx context.Context, key K, val int64) error {
 	return r.client.IncrBy(ctx, string(key), val).Err()
 }
